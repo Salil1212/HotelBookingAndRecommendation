@@ -1,0 +1,50 @@
+/* Register.css */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px; /* Padding for all sides */
+}
+
+.register-heading {
+  margin-bottom: 20px; /* Space between heading and form */
+  text-align: center; /* Center-align the heading */
+  font-size: 2rem; /* Larger font size for heading */
+  color: #333; /* Dark text color */
+}
+
+.register-form {
+  max-width: 400px; /* Limit width of the form for readability */
+  width: 100%; /* Take full width of parent container */
+  background-color: #fff; /* White background for form */
+  padding: 30px; /* Padding inside the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+}
+
+.message {
+  margin-top: 10px;
+  color: green;
+}
+
+.btn-group {
+  margin-top: 20px; /* Margin between buttons and form */
+  display: flex;
+  justify-content: center; /* Center-align buttons horizontally */
+}
+
+.btn-register,
+.btn-login {
+  width: 100%; /* Full width for buttons */
+  margin-top: 10px; /* Margin from the top */
+  padding: 12px; /* Padding inside the button */
+  font-size: 1rem; /* Medium font size */
+}
+
+@media (min-width: 768px) {
+  .register-form {
+    max-width: 600px; /* Increase max-width for larger screens */
+  }
+}
