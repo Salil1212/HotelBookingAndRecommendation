@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import HotelList from "./components/HotelList";
 import HotelDetail from "./components/HotelDetail";
 import "./styles.css";
 import Register from "./components/Auth/Register";
 import Login from "./components/Auth/Login";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthContext, AuthProvider } from "./context/AuthContext";
 import Home from "./components/Home";
+import { Button } from "react-bootstrap";
 
 function App() {
   return (

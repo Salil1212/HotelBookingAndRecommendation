@@ -1,0 +1,84 @@
+/* HotelDetail.css */
+
+.hotel-detail-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.hotel-detail-background {
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotel-detail-card {
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hotel-detail-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.hotel-detail-text {
+  font-size: 1.25rem;
+  color: #666;
+}
+
+.logout-btn {
+  background-color: #ff6f61; /* Coral color */
+  color: #fff;
+  border: none;
+  border-radius: 50px; /* Rounded corners */
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 15px;
+}
+
+.logout-btn:hover {
+  background-color: #ff3d2e; /* Darker coral */
+  transform: scale(1.05);
+}
+
+.logout-btn:focus {
+  outline: none;
+}
+
+.logout-btn:active {
+  background-color: #e63e36; /* Even darker coral */
+}
+
+/* Responsive styling */
+@media (max-width: 767.98px) {
+  .hotel-detail-card {
+    padding: 15px;
+  }
+  .hotel-detail-title {
+    font-size: 1.5rem;
+  }
+  .hotel-detail-text {
+    font-size: 1rem;
+  }
+}

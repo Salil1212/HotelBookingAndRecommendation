@@ -4,8 +4,10 @@ import "./Home.css"; // Import custom CSS file
 
 const Home = () => {
   const navigate = useNavigate();
+  
 
   const handleLogin = () => {
+
     navigate("/login");
   };
 
@@ -17,6 +19,7 @@ const Home = () => {
     <div className="container-fluid bg-light min-vh-100 d-flex flex-column justify-content-center align-items-center home-container">
       <div className="text-center">
         <h1 className="mb-5">Welcome to Our Platform</h1>
+        
         <div className="row justify-content-center">
           <div className="col-sm-12 col-md-6 col-lg-4 mb-3">
             <button
