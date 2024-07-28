@@ -10,11 +10,23 @@ const adminRoutes = require("./routes/admin");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+require("dotenv").config();
 
-mongoose.connect("mongodb://localhost:27017/hotel-booking", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+
+async function main() {
+  try {
+    await mongoose.connect(process.env.mongoDBURL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("Database connected");
+  } catch (error) {
+    console.error("Database connection failed:", error);
+    process.exit(1); // Exit the process with failure
+  }
+}
+
+main();
 app.get("/", (req, res) => {
   res.json("This is home page");
 });
@@ -28,3 +40,5 @@ app.use("/admin", adminRoutes);
 app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
+// salilnigam2021
+// EO7s9dO0wc7xrvXp

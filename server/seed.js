@@ -2,12 +2,22 @@
 const mongoose = require("mongoose");
 const Hotel = require("./models/Hotel");
 const User = require("./models/User");
+require("dotenv").config();
 
-mongoose.connect("mongodb://localhost:27017/hotel-booking", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+async function main() {
+  try {
+    await mongoose.connect(process.env.mongoDBURL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("Database connected");
+  } catch (error) {
+    console.error("Database connection failed:", error);
+    process.exit(1); // Exit the process with failure
+  }
+}
 
+main();
 const seedHotels = [
   {
     name: "Hotel One",
