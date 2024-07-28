@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
         { name, email }
       );
       console.log("Response from login:", response.data);
-      const token = response.data.token;
+       const token=response.data.token
       localStorage.setItem("token", token);
       const decodedToken = jwtDecode(token);
       setAuth({ token, user: decodedToken });
@@ -58,3 +58,4 @@ const AuthProvider = ({ children }) => {
 };
 
 export { AuthContext, AuthProvider };
+

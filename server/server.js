@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const hotelRoutes = require("./routes/hotels");
 const userRoutes = require("./routes/users");
 const recommendationRoutes = require("./routes/recommendations");
-
+const adminRoutes = require("./routes/admin");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -23,52 +23,8 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/hotels", hotelRoutes);
 app.use("/recommendations", recommendationRoutes);
 app.use("/users", userRoutes);
+app.use("/admin", adminRoutes);
+
 app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
-[
-  {
-    _id: "66926456e0efa06ac81bbf96",
-    name: "Salil Nigam",
-    email: "salilnigam1212@gmail.com",
-    __v: 0,
-    createdAt: "2024-07-13T11:26:14.945Z",
-    updatedAt: "2024-07-13T11:26:14.945Z",
-  },
-  {
-    _id: "66926456e0efa06ac81bbf97",
-    name: "Rishabh Nigam",
-    email: "rishabhnigam1212@gmail.com",
-    __v: 0,
-    createdAt: "2024-07-13T11:26:14.945Z",
-    updatedAt: "2024-07-13T11:26:14.945Z",
-  },
-][
-  ({
-    _id: "66926456e0efa06ac81bbf91",
-    name: "Hotel One",
-    location: "City One",
-    rating: 4.5,
-    __v: 0,
-    createdAt: "2024-07-13T11:26:14.932Z",
-    updatedAt: "2024-07-13T11:26:14.932Z",
-  },
-  {
-    _id: "66926456e0efa06ac81bbf92",
-    name: "Hotel Two",
-    location: "City Two",
-    rating: 4,
-    __v: 0,
-    createdAt: "2024-07-13T11:26:14.933Z",
-    updatedAt: "2024-07-13T11:26:14.933Z",
-  },
-  {
-    _id: "66926456e0efa06ac81bbf93",
-    name: "Hotel Three",
-    location: "City Three",
-    rating: 3.5,
-    __v: 0,
-    createdAt: "2024-07-13T11:26:14.933Z",
-    updatedAt: "2024-07-13T11:26:14.933Z",
-  })
-];

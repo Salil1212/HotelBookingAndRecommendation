@@ -22,46 +22,25 @@ exports.register = async (req, res) => {
   }
 };
 
-// exports.login = async (req, res) => {
-//   const { name, email } = req.body;
-
-//   try {
-//     const user = await User.findOne({ email });
-//     if (!user)
-//       return res.status(400).json({ message: "Invalid email or password" });
-
-//     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-//       expiresIn: "1h",
-//     });
-//     // console.log(token);
-//     res.status(200).json({ token });
-//   } catch (error) {
-//     res.status(500).json({ message: "Server error", error });
-//   }
-// };
-
-// const User = require("../models/User");
-// const jwt = require("jsonwebtoken");
-
 exports.login = async (req, res) => {
   const { name, email } = req.body;
 
   try {
     const user = await User.findOne({ email });
-    if (!user || user.name !== name) {
-      return res.status(400).json({ message: "Invalid name or email" });
-    }
+    if (!user)
+      return res.status(400).json({ message: "Invalid email or password" });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-
+    // console.log(token);
     res.status(200).json({ token });
   } catch (error) {
-    console.error("Error in login:", error);
-    res.status(500).json({ message: "Server error", error: error.message });
+    res.status(500).json({ message: "Server error", error });
   }
 };
+
+
 
 // Logout user
 exports.logout = async (req, res) => {
