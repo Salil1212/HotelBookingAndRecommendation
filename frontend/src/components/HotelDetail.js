@@ -21,7 +21,7 @@ const HotelDetail = () => {
   useEffect(() => {
     const fetchHotelDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/hotels`);
+        const response = await axios.get(`https://hotel-booking-and-recommendation.vercel.app/hotels`);
         const hotelData = response.data.find((h) => h._id === id);
         if (hotelData) {
           setHotel(hotelData);
