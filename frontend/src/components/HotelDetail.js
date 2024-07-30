@@ -1,9 +1,9 @@
+
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Button, Container, Row, Col, Card } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 import "./HotelDetail.css"; // Import the custom CSS for additional styling
 
 const HotelDetail = () => {
@@ -18,6 +18,10 @@ const HotelDetail = () => {
     navigate("/login");
   };
 
+  const handleBack = () => {
+    navigate("/hotellist"); // Navigate to the HotelList component
+  };
+
   useEffect(() => {
     const fetchHotelDetails = async () => {
       try {
@@ -28,7 +32,7 @@ const HotelDetail = () => {
 
           // Post visit activity only if it hasn't been logged
           if (!activityLogged) {
-            await axios.post(`http://localhost:5000/hotels/${id}/visit`, {
+            await axios.post(`https://hotel-booking-and-recommendation.vercel.app/hotels/${id}/visit`, {
               userId: auth.user.id,
               hotelId: hotelData._id, // Use hotelData here
               type: "visit",
@@ -47,7 +51,7 @@ const HotelDetail = () => {
     if (auth) {
       fetchHotelDetails();
     }
-  }, [auth]); // Added activityLogged to dependencies
+  }, [auth, id, activityLogged]); // Added activityLogged to dependencies
 
   return (
     <div className="hotel-detail-container">
@@ -78,9 +82,14 @@ const HotelDetail = () => {
                       <strong>Rating:</strong> {hotel.rating} / 5
                     </Card.Text>
                     <Button
+                      onClick={handleBack}
+                      className="btn-custom back-btn"
+                    >
+                      Back
+                    </Button>
+                    <Button
                       onClick={handleLogout}
-                      variant="danger"
-                      className="logout-btn"
+                      className="btn-custom logout-btn"
                     >
                       Logout
                     </Button>
