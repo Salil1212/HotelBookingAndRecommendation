@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
     try {
       console.log("Attempting login with:", { name, email });
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://hotel-booking-and-recommendation.vercel.app/api/auth/login",
         { name, email }
       );
       console.log("Response from login:", response.data);
