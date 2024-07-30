@@ -17,7 +17,7 @@ const HotelList = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:5000/hotels").then((response) => {
+    axios.get("https://hotel-booking-and-recommendation.vercel.app/hotels").then((response) => {
       setHotels(response.data);
     });
   }, []);
