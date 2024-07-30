@@ -7,7 +7,7 @@ const Recommendations = ({ userId }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/recommendations?userId=${userId}`)
+      .get(`https://hotel-booking-and-recommendation.vercel.app/recommendations?userId=${userId}`)
       .then((response) => {
         setHotels(response.data);
       });
